@@ -1018,22 +1018,70 @@ button:active {
   }
 
   .spread-layout {
-    height: 500px;
+    height: auto;
+    max-width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  .card-position {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  /* 第一行：自己 (position-0) - 占满一行 */
+  .card-position.position-0 {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 第二行：过去 (position-2) 和 对方 (position-1) */
+  .card-position.position-2 {
+    order: 2;
+    width: calc(50% - 10px);
+  }
+
+  .card-position.position-1 {
+    order: 3;
+    width: calc(50% - 10px);
+  }
+
+  /* 第三行：现在 (position-3) 和 未来 (position-4) */
+  .card-position.position-3 {
+    order: 4;
+    width: calc(50% - 10px);
+  }
+
+  .card-position.position-4 {
+    order: 5;
+    width: calc(50% - 10px);
   }
 
   .card-container {
-    width: 90px;
-    height: 135px;
+    width: 100%;
+    max-width: 140px;
+    height: 200px;
+    margin: 0 auto;
   }
 
   .card {
-    width: 90px;
-    height: 135px;
-    padding: 12px;
+    width: 100%;
+    height: 100%;
+    padding: 14px;
   }
 
   .card-name {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .orientation-badge {
@@ -1044,7 +1092,11 @@ button:active {
   }
 
   .orientation-marker {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .position-label {
+    font-size: 0.85rem;
   }
 
   .analyzing-screen h2 {
@@ -1080,7 +1132,33 @@ button:active {
   }
 
   .card-display {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-display .card {
+    width: 150px;
+    height: 225px;
+    padding: 16px;
+  }
+
+  .card-display .card-name {
+    font-size: 0.9rem;
+  }
+
+  .card-display .orientation-badge {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+  }
+
+  .card-display .orientation-marker {
+    font-size: 1.5rem;
+  }
+
+  .card-interpretation-text {
+    width: 100%;
   }
 
   .language-toggle {
