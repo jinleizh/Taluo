@@ -33,10 +33,6 @@ function Report({ question, drawnCards, onNewReading, language, isFromCache = fa
   const analysis = generateOverallAnalysis(drawnCards, language);
   const advice = generateActionableAdvice(drawnCards, language);
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   const handleClearHistory = () => {
     setShowConfirm(true);
   };
@@ -138,7 +134,6 @@ function Report({ question, drawnCards, onNewReading, language, isFromCache = fa
       {/* Actions */}
       <div className="report-actions">
         <button onClick={onNewReading}>{t('reportNewButton')}</button>
-        <button className="button-secondary" onClick={handlePrint}>{t('reportPrintButton')}</button>
         <button className="button-danger" onClick={handleClearHistory}>
           {t('historyClearButton')}
         </button>
